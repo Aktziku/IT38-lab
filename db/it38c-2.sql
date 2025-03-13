@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 19, 2025 at 01:24 PM
+-- Generation Time: Mar 13, 2025 at 08:55 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -38,7 +38,22 @@ CREATE TABLE `login_logs` (
 --
 
 INSERT INTO `login_logs` (`login_id`, `user_id`, `login_time`) VALUES
-(1, 1, '2025-02-19 20:22:25');
+(1, 1, '2025-02-19 20:22:25'),
+(2, 2, '2025-03-13 15:10:31'),
+(3, 3, '2025-03-13 15:40:39'),
+(4, 3, '2025-03-13 15:48:04');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_attendance`
+--
+
+CREATE TABLE `tbl_attendance` (
+  `attendance_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `attendance_date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -60,7 +75,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `user_type`, `last_login`, `created_at`) VALUES
-(1, 'admin', '$2y$10$FeytX8omy3seHCHjAwz6x..TUtdGAlodNsdjILf8FRq/e4L9D0SYC', 'admin', '2025-02-19 20:22:25', '2025-02-19 12:22:13');
+(1, 'admin', '$2y$10$FeytX8omy3seHCHjAwz6x..TUtdGAlodNsdjILf8FRq/e4L9D0SYC', 'admin', '2025-02-19 20:22:25', '2025-02-19 12:22:13'),
+(2, 'admin1', '$2y$10$aBcawbY5lKERIOUsYzSf1e7aolTpwfNSOObPauZikrMptGqxGjTRW', 'admin', '2025-03-13 15:10:31', '2025-03-13 07:10:20'),
+(3, 'user', '$2y$10$RHbWazAV9Qvv7HgwwcjWfO8RoC23ySR7V50ug4Mne3i99ajSAtWra', 'user', '2025-03-13 15:48:04', '2025-03-13 07:40:26');
 
 --
 -- Indexes for dumped tables
@@ -71,6 +88,12 @@ INSERT INTO `users` (`id`, `username`, `password`, `user_type`, `last_login`, `c
 --
 ALTER TABLE `login_logs`
   ADD PRIMARY KEY (`login_id`);
+
+--
+-- Indexes for table `tbl_attendance`
+--
+ALTER TABLE `tbl_attendance`
+  ADD PRIMARY KEY (`attendance_id`);
 
 --
 -- Indexes for table `users`
@@ -86,13 +109,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `login_logs`
 --
 ALTER TABLE `login_logs`
-  MODIFY `login_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `login_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `tbl_attendance`
+--
+ALTER TABLE `tbl_attendance`
+  MODIFY `attendance_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
